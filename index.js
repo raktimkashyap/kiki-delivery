@@ -21,17 +21,25 @@ function main() {
       console.log("-----------------------\n");
       const allPackagesCost = calculateDeliveryCost();
       console.log("TOTAL DELIVERY COSTS:");
-      console.log("-----------------------");
-      console.table("ID     DISCOUNT      TOTAL");
+
+      console.table("ID\t\tDISCOUNT\tTOTAL");
       allPackagesCost.map((pkg) =>
-        console.log(`${pkg.pkgId}   ${pkg.discount}        ${pkg.totalCost}`)
+        console.log(`${pkg.pkgId}\t\t${pkg.discount}\t\t${pkg.totalCost}`)
       );
       break;
     case "2":
       console.clear();
       console.log("CALCULATE DELIVERY TIME");
-      console.log("-----------------------\n");
-      calculateDeliveryTime();
+
+      const allPackagesTime = calculateDeliveryTime();
+      console.log("ESTIMATED DELIVERY TIME:");
+
+      console.table("ID\t\tDISCOUNT\tTOTAL\t\tTIME");
+      allPackagesTime.map((pkg) => {
+        console.log(
+          `${pkg.pkgId}\t\t${pkg.discount}\t\t${pkg.totalCost}\t\t${pkg.deliveryTime}`
+        );
+      });
       break;
     default:
       console.log("INVALID OPTION");

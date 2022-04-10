@@ -1,4 +1,5 @@
 const Coupon = require("./coupon");
+const couponsList = require("../INPUTS/couponsInput");
 
 class CouponCollection {
   constructor() {
@@ -29,16 +30,14 @@ class CouponCollection {
   }
 
   viewAllDiscounts() {
-    console.log("\nAVAILABLE DISCOUNT COUPONS:");
-    console.log("-----------------------------");
-    console.table("CODE      OFF%      KMs        KGs");
+    console.log("\nAVAILABLE DISCOUNT COUPONS:\n");
+    console.table("CODE\tOFF%\tKMs\tKGs");
     const coupons = this.coupons;
     for (let i = 0; i < coupons.length; i++) {
-      console.table(
-        `${coupons[i].couponCode}    ${coupons[i].discountPercentage}%     ${coupons[i].minDistance}-${coupons[i].maxDistance}     ${coupons[i].minWeight}-${coupons[i].maxWeight}`
+      console.log(
+        `${coupons[i].couponCode}\t${coupons[i].discountPercentage}%\t${coupons[i].minDistance}-${coupons[i].maxDistance}\t${coupons[i].minWeight}-${coupons[i].maxWeight}`
       );
     }
-    console.log("\n");
   }
 
   isCouponValid(code) {
@@ -50,36 +49,7 @@ class CouponCollection {
   }
 
   setInitialCoupons() {
-    this.coupons.push(
-      new Coupon({
-        couponCode: "OFR001",
-        discountPercentage: 10,
-        minWeight: 70,
-        maxWeight: 200,
-        minDistance: 0,
-        maxDistance: 200,
-      })
-    );
-    this.coupons.push(
-      new Coupon({
-        couponCode: "OFR002",
-        discountPercentage: 7,
-        minWeight: 100,
-        maxWeight: 250,
-        minDistance: 50,
-        maxDistance: 150,
-      })
-    );
-    this.coupons.push(
-      new Coupon({
-        couponCode: "OFR003",
-        discountPercentage: 5,
-        minWeight: 10,
-        maxWeight: 150,
-        minDistance: 50,
-        maxDistance: 250,
-      })
-    );
+    couponsList.forEach((coupon) => this.coupons.push(new Coupon(coupon)));
   }
 }
 const coupons = new CouponCollection();

@@ -10,6 +10,7 @@ const isCouponValid = (coupon, distance, weight) => {
   );
 };
 
+//  CALCULATE COST
 const calculate = (package, baseCost) => {
   const cost = baseCost + package.weight * 10 + package.distance * 5;
 
@@ -28,7 +29,6 @@ const calculate = (package, baseCost) => {
     weight: package.weight,
     coupon: package.coupon,
   };
-  // console.log(`${package.pkgId}    ${discount}     ${totalCost}`);
 
   return bill;
 };

@@ -3,6 +3,7 @@ const calculateDeliveryCost = require("../calculateCost/calculateDeliveryCost");
 const createPackageGroups = require("./createPackageGroups");
 const vehicles = require("../delivery/vehicle");
 const log = require("../utility/logger");
+const packages = require("../delivery/package");
 
 const calculateDeliveryTime = () => {
   const allPackages = calculateDeliveryCost().sort(
@@ -33,7 +34,10 @@ const calculateDeliveryTime = () => {
 
     vehicles.sortByDeliveryTime();
   }
-  return possiblePackages;
+  let package = possiblePackages.flat();
+  let finalPackages = [];
+  package.forEach((p) => finalPackages.push(...p.packages));
+  return finalPackages.sort((a, b) => a.pkgId.localeCompare(b.pkgId));
 };
 
 module.exports = calculateDeliveryTime;
