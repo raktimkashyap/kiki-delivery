@@ -1,5 +1,5 @@
 # kiki-delivery-js
 
 ## Run the application
-npm install
-npm start
+- npm install
+- npm start
