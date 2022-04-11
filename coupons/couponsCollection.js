@@ -30,7 +30,8 @@ class CouponCollection {
   }
 
   viewAllDiscounts() {
-    console.log("\nAVAILABLE DISCOUNT COUPONS:\n");
+    console.log("\nAVAILABLE COUPONS (from /INPUTS/couponsInput.js): ");
+    console.log("---------------------------------\n");
     console.table("CODE\tOFF%\tKMs\tKGs");
     const coupons = this.coupons;
     for (let i = 0; i < coupons.length; i++) {

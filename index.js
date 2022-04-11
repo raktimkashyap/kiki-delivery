@@ -1,14 +1,15 @@
 const io = require("./utility/userInput");
 const calculateDeliveryTime = require("./calculateTime/calculateDeliveryTime");
 const calculateDeliveryCost = require("./calculateCost/calculateDeliveryCost");
+const viewInputs = require("./viewInputs");
 
 function main() {
   console.clear();
-  console.log("SELECT AN OPTION");
-  console.log("----------------\n");
+
+  console.log("SELECT AN OPTION:");
+
   console.log("1. CALCULATE DELIVERY COST");
   console.log("2. CALCULATE DELIVERY TIME");
-  console.log("\n");
 
   const x = io("ENTER OPTION: ");
 
@@ -17,11 +18,14 @@ function main() {
   switch (x) {
     case "1":
       console.clear();
-      console.log("CALCULATE DELIVERY COST");
-      console.log("-----------------------\n");
+      // VIEW INPUTS
+      console.log("\nINPUTS (from /INPUTS/packageInput.js): ");
+      console.log("---------------------------------\n");
+      viewInputs();
+      console.log("\n");
+
       const allPackagesCost = calculateDeliveryCost();
       console.log("TOTAL DELIVERY COSTS:");
-
       console.table("ID\t\tDISCOUNT\tTOTAL");
       allPackagesCost.map((pkg) =>
         console.log(`${pkg.pkgId}\t\t${pkg.discount}\t\t${pkg.totalCost}`)
@@ -29,7 +33,11 @@ function main() {
       break;
     case "2":
       console.clear();
-      console.log("CALCULATE DELIVERY TIME");
+      // VIEW INPUTS
+      console.log("\nINPUTS (from /INPUTS/packageInput.js): ");
+      console.log("---------------------------------\n");
+      viewInputs();
+      console.log("\n");
 
       const allPackagesTime = calculateDeliveryTime();
       console.log("ESTIMATED DELIVERY TIME:");
