@@ -3,6 +3,6 @@
 ## Setup
 To install and run this application you will need to install node js.
 
-$ git clone 
+`$ git clone 
 $ npm install
-$ npm start
+$ npm start`
