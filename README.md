@@ -16,7 +16,6 @@ This application addresses two problems
 2. To Calculate the delivery time for each package.
 
 After the program starts, select the option you want to see the results for.
-You MAY need to enter the Vehicle counts, Maximum Load and Maximum speed manually for the 2nd solution.
 
 ## User Inputs
 The inputs for the problems are mentioned in the INPUTS directory inside the project.
